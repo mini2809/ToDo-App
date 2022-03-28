@@ -17,34 +17,43 @@ function App() {
             <button className="submit" onClick={()=> {
               setTodo("");
               setId(todoId+1);
-              setList([...todoList,{"id":todoId,"description":todos}]);
+              if(todos!="")
+                setList([...todoList,{"id":todoId,"description":todos}]);
             }}>Add Task</button>
         </div>
         <div className="todos">
-            <div className="subheading">My Todos</div>
-            <ul>
-                {todoList.map((todo)=>(
-                    <li key={todo.id}>
-                        <div className='todoItems'>
-                            <div id={todo.id} className="description">{todo.description}</div>
-                            <div id={"cross"+ todo.id} className="cross" onClick={()=>
-                              HandleDeleteTodo(todo.id,todoList,setList)
-                            }> x </div>
-                        </div>
-                        
-                    </li>
-                 ))}
-                </ul>
+        {
+          todoList.length > 0 ? (
+            <div>
+              <div className="subheading">My Todos</div>
+              <ul>
+              {todoList.map((todo)=>(
+                  <li key={todo.id}>
+                      <div className='todoItems'>
+                          <div id={todo.id} className="description">{todo.description}</div>
+                          <div id={"cross"+ todo.id} className="cross" onClick={()=>
+                            HandleDeleteTodo(todo.id,todoList,setList)
+                          }> x </div>
+                      </div>
+                      
+                  </li>
+                ))}
+            </ul>
+        </div>
+          ) 
+          : (<div className="subheading">Going Good No left Over Task!</div>)
+        }
+           
         </div>
     </div>
   );
 }
 function HandleDeleteTodo(deleteId ,todoList,setList){
   let newList=[];
-  todoList.map((td)=>{
-      if(td.id != deleteId)
+  todoList.forEach(td => {
+    if(td.id != deleteId)
       newList.push(td);
-  })
+  });
   setList(newList);
 }
 

@@ -1,4 +1,74 @@
 .App {
   text-align: center;
+  padding: 40px;
 }
 
+.input{
+  width:500px;
+  height:40px;
+  border-radius: 5px;
+}
+.input-container{
+  display:flex;
+  justify-content: center;
+  margin: 10px;
+}
+.label{
+  display:flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 25px;
+}
+.heading{
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+.submit{
+  height:30px;
+  border: none;
+  width:150px;
+  border-radius:5px;
+}
+.description{
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: start;
+}
+.subheading{
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+.todos{
+  margin-top: 50px;
+}
+.todoItems{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: aquamarine;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+li{
+  list-style: none;;
+}
+.cross{
+  cursor:pointer;
+  color: lightgray;
+}
+.cross:hover{
+  color:black;
+}
+input::placeholder{
+  padding: 10px;
+}
